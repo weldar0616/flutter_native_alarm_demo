@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _requestPermissions() async {
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (Platform.isIOS) {
       await flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
               IOSFlutterLocalNotificationsPlugin>()
@@ -804,8 +804,7 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ],
-                  if (!kIsWeb &&
-                      (Platform.isIOS || Platform.isMacOS)) ...<Widget>[
+                  if (!kIsWeb && Platform.isIOS) ...<Widget>[
                     const Text(
                       'iOS and macOS-specific examples',
                       style: TextStyle(fontWeight: FontWeight.bold),
